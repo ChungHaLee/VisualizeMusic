@@ -1,0 +1,140 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons|Material+Icons+Sharp|Material+Icons+Two+Tone|Material+Icons+Outlined" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500&display=swap" rel="stylesheet">
+
+    <link href="https://fonts.googleapis.com/css?family=Source+Serif+Pro:400,600&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="fonts/icomoon/style.css">
+
+    <link rel="stylesheet" href="css/owl.carousel.min.css">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <!-- Style -->
+    <link rel="stylesheet" href="css/style.css">
+    <!-- Javascript -->
+    <script type="module" defer src="./js/main.js"></script>
+    <script type="module" defer src="./js/pickr.js"></script>
+    <script defer src="./js/getAudio.js"></script>
+    <script src="https://unpkg.com/meyda/dist/web/meyda.min.js"></script>
+    
+    <title>VibvizTool_Customizing</title>
+  </head>
+  <body>
+  
+    
+    <aside class="sidebar">
+      <div class="toggle">
+        <a href="#" class="burger js-menu-toggle" data-toggle="collapse" data-target="#main-navbar">
+              <span></span>
+            </a>
+      </div>
+      <div class="side-inner">
+
+        <div class="profile">
+          <img src="images/cutecat.jpeg" alt="Image" class="img-fluid">
+          <h3 class="name">User#01</h3>
+          <span class="country">Deaf</span>
+        </div>
+
+        
+        <div class="nav-menu">
+          <ul>
+            <li class="accordion">
+              <p id="VisuoMenu" data-toggle="collapse" data-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne" class="collapsible">
+              <!-- <a href="#" id="VisuoMenu" data-toggle="collapse" data-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne" class="collapsible"> -->
+                <span class="material-icons" style="font-size:25px; vertical-align: top;">palette</span> Visualization
+              <!-- </a> -->
+              </p>
+              <div id="collapseOne" class="collapse" aria-labelledby="headingOne">
+                <div>
+                  <ul>
+                    <li type="button" class="VisuoMenus" id="VisuoLine">
+                      <input class="check-btn" id="check-VisuoLine" type="checkbox"> 
+                        <label for="check-VisuoLine"> Line </label></li>
+                    <li type="button" class="VisuoMenus" id="VisuoSphere">
+                      <input class="check-btn" id="check-VisuoSphere" type="checkbox"> 
+                        <label for="check-VisuoSphere"> Sphere </label></li>
+                    <li type="button" class="VisuoMenus" id="VisuoRing">
+                      <input class="check-btn" id="check-VisuoRing" type="checkbox"> 
+                        <label for="check-VisuoRing"> Ring </label></li>
+                    <li type="button" class="VisuoMenus" id="VisuoTorus">
+                      <input class="check-btn" id="check-VisuoTorus" type="checkbox"> 
+                        <label for="check-VisuoTorus"> Torus </label></li>
+                    <li type="button" class="VisuoMenus" id="VisuoCone">
+                      <input class="check-btn" id="check-VisuoCone" type="checkbox"> 
+                        <label for="check-VisuoCone"> Cone </label></li>
+                  </ul>
+                </div>
+              </div>
+            </li>
+            <br>
+            <li class="accordion">
+              <p id="HapticMenu" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo" class="collapsible">
+                <span class="material-icons" style="font-size:25px; vertical-align: top;">vibration</span> Haptic
+              </p>
+
+              <div id="collapseTwo" class="collapse" aria-labelledby="headingOne">
+                <div>
+                  <ul>
+                    <li type="button" class="HapticMenus">Tempo</li>
+                    <li type="button" class="HapticMenus">Frequency</li>
+                    <li type="button" class="HapticMenus">Amplitude</li>
+                    <li type="button" class="HapticMenus">Timbre</li>
+                  </ul>
+                </div>
+              </div>
+
+            </li>
+          </ul>
+        </div>
+      </div>
+      
+    </aside>
+
+
+    
+    <h4 class="thetitle" id="title"></h4>
+    <div id="userCustom">#000000</div>
+    <div id="content">
+        <label for="thefile" class="file"> Pick a Music 🎺
+            <input type="file" id="thefile" accept="audio/mp3" />
+        </label>
+        <audio id="audio" controls></audio>
+    </div>
+
+
+    <div class="customMenu" id="customMenu-Line">
+      <h5 class="menuTitle">Line Visualization</h5>
+      <hr class="menuTitleHR">
+      <p id="menuLine"> Pitch </p>
+          <button class="pitchLineMenu" id="pitchLineHeight"> Line Height </button>
+          <button class="pitchLineMenu" id="pitchLineThickness"> Line Thickness </button>
+          <button class="pitchLineMenu" id="pitchLineType"> Line Type </button>
+      <br>
+      <p id="menuLine"> Dynamics </p>
+          <button class="dynamicLineMenu" id="dynamicLineHeight"> Line Height </button>
+          <button class="dynamicLineMenu" id="dynamicLineThickness"> Line Thickness </button>
+          <button class="dynamicLineMenu" id="dynamicLineType"> Line Type </button>
+      <br>
+      <p id="menuLine"> Background </p>
+          <button class="visualButtonColors" type="button"> Colors </button>
+    </div>
+
+
+    <main>
+        <div id="container"></div>
+    </main>
+    
+    
+    <script src="js/jquery-3.3.1.min.js"></script>
+    <script src="js/popper.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/bootstrapmain.js"></script>
+  </body>
+</html>
