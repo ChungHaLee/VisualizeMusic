@@ -316,8 +316,7 @@ audio.playing{
 
 canvas{
   background-color: black;
-  margin-top: -500px;
-  margin-left: 360px;
+  margin-left: 360px; 
 }
 
 
@@ -358,14 +357,23 @@ h4#title{
 }
 
 
-div#customMenu-Line {
+/* div#customMenu-Line {
+  display: none;
   margin-left: 1330px;
-  display: inline-block;
   width: 750px;
   height: 500px;
   background-color: #c8d9d6;
   border-radius: 8px;
 }
+
+div#customMenu-Sphere {
+  display: none;
+  margin-left: 1330px;
+  width: 750px;
+  height: 500px;
+  background-color: #d5c8d9;
+  border-radius: 8px;
+} */
 
 
 
@@ -391,37 +399,37 @@ p#menuLine{
 }
 
 
-button.pitchLineMenu{
+button.pitchMenu{
   background: rgb(0, 0, 0);
   background: linear-gradient(0deg, rgb(33, 33, 33) 0%, rgb(162, 162, 162) 100%);
   border: none;
   margin-left: 50px;
   width: 170px;
   height: 50px;
-  font-size: 20px;
+  font-size: 18px;
   box-shadow: 0px 2px 3px 0px rgba(0,0,0,0.2);
   color: white;
 }
 
-button.pitchLineMenu:focus{
+button.pitchMenu:focus{
   background: rgb(255, 255, 255);
   background: linear-gradient(0deg, rgb(249, 249, 249) 0%, rgb(182, 182, 182) 100%);
   color: black;
 }
 
-button.dynamicLineMenu{
+button.dynamicMenu{
   background: rgb(0, 0, 0);
   background: linear-gradient(0deg, rgb(33, 33, 33) 0%, rgb(162, 162, 162) 100%);
   border: none;
   margin-left: 50px;
   width: 170px;
   height: 50px;
-  font-size: 20px;
+  font-size: 18px;
   box-shadow: 0px 2px 3px 0px rgba(0,0,0,0.2);
   color: white;
 }
 
-button.dynamicLineMenu:focus{
+button.dynamicMenu:focus{
   background: rgb(255, 255, 255);
   background: linear-gradient(0deg, rgb(249, 249, 249) 0%, rgb(182, 182, 182) 100%);
   color: black;
@@ -436,10 +444,32 @@ button.visualButtonColors{
   margin-left: 50px;
   width: 170px;
   height: 50px;
-  font-size: 20px;
+  font-size: 18px;
   box-shadow: 0px 2px 3px 0px rgba(0,0,0,0.2);
 }
 
+
+div#customMenu-Line {
+  display: none;
+  float: right;
+  margin-top: 100px;
+  margin-right: -1050px;
+  width: 750px;
+  height: 500px;
+  background-color: #c8d9d6;
+  border-radius: 8px;
+}
+
+div#customMenu-Sphere {
+  display: none;
+  float: right;
+  margin-top: 100px;
+  margin-right: -1050px;
+  width: 750px;
+  height: 500px;
+  background-color: #d0b3bf;
+  border-radius: 8px;
+}
 
 
 #button:checked ~ ul {
@@ -449,9 +479,9 @@ button.visualButtonColors{
 }
 
 
-input.check-btn{
+/* input.check-btn{
   display: none;
-}
+} */
 
 
 #check-VisuoLine:checked ~ #customMenu-Line{

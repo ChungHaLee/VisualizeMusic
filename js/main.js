@@ -9,19 +9,20 @@ let camera, scene, renderer;
 let container, stats;
 
 
-// 대메뉴 클릭
-const visuo_line = document.getElementById("VisuoLine");
-const visuo_sphere = document.getElementById("VisuoSphere");
-
 
 
 // 소메뉴 클릭
+// 1. Line
 const pitch_lineHeight = document.getElementById("pitchLineHeight");
 const pitch_lineThickness = document.getElementById("pitchLineThickness");
 const pitch_lineType = document.getElementById("pitchLineType");
 const dynamic_lineHeight = document.getElementById("dynamicLineHeight");
 const dynamic_lineThickness = document.getElementById("dynamicLineThickness");
 const dynamic_lineType = document.getElementById("dynamicLineType");
+
+// 2. Sphere
+const pitch_sphereSize = document.getElementById("pitchSphereSize");
+
 
 
 var now_geometry;
@@ -139,6 +140,9 @@ function animate() {
       } else if (now_geometry == 'dynamic_line_type') {
         deleteBasics();
         createShapeLineTypeDynamics();
+      } else if (now_geometry == 'pitch_sphere_size'){
+        deleteBasics();
+        createShapeSphereSize();
       }
       render();
   }
@@ -149,7 +153,6 @@ function animate() {
 // render function
 function render() {
   renderer.render(scene, camera);
-  console.log(camera.position);
 }
 
 // geometry function
@@ -311,35 +314,49 @@ function createShapeLineTypeDynamics(){
 }
 
 
-
-
-function createShapeHeart(){
-  var x = 0;
-  var y = 0;
-  var heartShape = new THREE.Shape();
-  
-  heartShape.moveTo( x + 5, y + 5 );
-  heartShape.bezierCurveTo( x + 5, y + 5, x + 4, y, x, y );
-  heartShape.bezierCurveTo( x - 6, y, x - 6, y + 7,x - 6, y + 7 );
-  heartShape.bezierCurveTo( x - 6, y + 11, x - 3, y + 15.4, x + 5, y + 19 );
-  heartShape.bezierCurveTo( x + 12, y + 15.4, x + 16, y + 11, x + 16, y + 7 );
-  heartShape.bezierCurveTo( x + 16, y + 7, x + 16, y, x + 10, y );
-  heartShape.bezierCurveTo( x + 7, y, x + 5, y + 5, x + 5, y + 5 );
-
-  geometry = new THREE.ShapeGeometry(heartShape);
-  material = new THREE.MeshBasicMaterial({
-      color: '#FFFFFF',
-      wireframe: false
-  });
-
-
-  compoCenter = new THREE.Mesh(geometry, material);
-  compoCenter.position.set(0, 0, 0);
-  spotLight.lookAt(compoCenter);
-
+function createShapeSphereSize(){
+  geometry = new THREE.SphereGeometry( 15, 32, 16, 0, maxChroma * 0.7 );
+  material = new THREE.MeshBasicMaterial( { 
+    color: '#FFFFFF',
+    wireframe: true
+  } );
+  compoCenter = new THREE.Mesh( geometry, material );
+  compoCenter.position.set(0, 10, 0);
+  spotLight.lookAt( compoCenter );
   group.add( compoCenter );
-
+  camera.position.set(1, 10, 70);
 }
+
+
+
+
+// function createShapeHeart(){
+//   var x = 0;
+//   var y = 0;
+//   var heartShape = new THREE.Shape();
+  
+//   heartShape.moveTo( x + 5, y + 5 );
+//   heartShape.bezierCurveTo( x + 5, y + 5, x + 4, y, x, y );
+//   heartShape.bezierCurveTo( x - 6, y, x - 6, y + 7,x - 6, y + 7 );
+//   heartShape.bezierCurveTo( x - 6, y + 11, x - 3, y + 15.4, x + 5, y + 19 );
+//   heartShape.bezierCurveTo( x + 12, y + 15.4, x + 16, y + 11, x + 16, y + 7 );
+//   heartShape.bezierCurveTo( x + 16, y + 7, x + 16, y, x + 10, y );
+//   heartShape.bezierCurveTo( x + 7, y, x + 5, y + 5, x + 5, y + 5 );
+
+//   geometry = new THREE.ShapeGeometry(heartShape);
+//   material = new THREE.MeshBasicMaterial({
+//       color: '#FFFFFF',
+//       wireframe: false
+//   });
+
+
+//   compoCenter = new THREE.Mesh(geometry, material);
+//   compoCenter.position.set(0, 0, 0);
+//   spotLight.lookAt(compoCenter);
+
+//   group.add( compoCenter );
+
+// }
 
 
 function createShapeRing(){
@@ -357,59 +374,59 @@ function createShapeRing(){
 }
 
 
-function createShapeSphere(){
-  geometry = new THREE.SphereGeometry( 15, 32, 16 );
-  material = new THREE.MeshBasicMaterial( { 
-    color: '#FFFFFF',
-    wireframe: true
-  });
-  compoCenter = new THREE.Mesh( geometry, material );
-  compoCenter.position.set(0, 0, 0);
-  spotLight.lookAt( compoCenter );
+// function createShapeSphere(){
+//   geometry = new THREE.SphereGeometry( 15, 32, 16 );
+//   material = new THREE.MeshBasicMaterial( { 
+//     color: '#FFFFFF',
+//     wireframe: true
+//   });
+//   compoCenter = new THREE.Mesh( geometry, material );
+//   compoCenter.position.set(0, 0, 0);
+//   spotLight.lookAt( compoCenter );
 
-  group.add( compoCenter );
-}
-
-
-function createShapeBox(){
-  geometry = new THREE.BoxGeometry( 1, 1, 1 );
-  material = new THREE.MeshBasicMaterial( { 
-    color: '#FFFFFF',
-    wireframe: false
-  });
-  compoCenter = new THREE.Mesh( geometry, material );
-  compoCenter.position.set(0, 0, 0);
-  spotLight.lookAt( compoCenter );
-
-  group.add( compoCenter );
-}
+//   group.add( compoCenter );
+// }
 
 
-function createShapeTorus(){
-  geometry = new THREE.TorusGeometry( 10, 3, 16, 100 );
-  material = new THREE.MeshBasicMaterial( { 
-    color: '#FFFFFF',
-    wireframe: false
-  });
-  compoCenter = new THREE.Mesh( geometry, material );
-  compoCenter.position.set(0, 0, 0);
-  spotLight.lookAt( compoCenter );
+// function createShapeBox(){
+//   geometry = new THREE.BoxGeometry( 1, 1, 1 );
+//   material = new THREE.MeshBasicMaterial( { 
+//     color: '#FFFFFF',
+//     wireframe: false
+//   });
+//   compoCenter = new THREE.Mesh( geometry, material );
+//   compoCenter.position.set(0, 0, 0);
+//   spotLight.lookAt( compoCenter );
 
-  group.add( compoCenter );
-}
+//   group.add( compoCenter );
+// }
 
-function createShapeCone(){
-  geometry = new THREE.ConeGeometry( 5, 20, 32 );
-  material = new THREE.MeshBasicMaterial( { 
-    color: '#FFFFFF',
-    wireframe: false
-  });
-  compoCenter = new THREE.Mesh( geometry, material );
-  compoCenter.position.set(0, 0, 0);
-  spotLight.lookAt( compoCenter );
 
-  group.add( compoCenter );
-}
+// function createShapeTorus(){
+//   geometry = new THREE.TorusGeometry( 10, 3, 16, 100 );
+//   material = new THREE.MeshBasicMaterial( { 
+//     color: '#FFFFFF',
+//     wireframe: false
+//   });
+//   compoCenter = new THREE.Mesh( geometry, material );
+//   compoCenter.position.set(0, 0, 0);
+//   spotLight.lookAt( compoCenter );
+
+//   group.add( compoCenter );
+// }
+
+// function createShapeCone(){
+//   geometry = new THREE.ConeGeometry( 5, 20, 32 );
+//   material = new THREE.MeshBasicMaterial( { 
+//     color: '#FFFFFF',
+//     wireframe: false
+//   });
+//   compoCenter = new THREE.Mesh( geometry, material );
+//   compoCenter.position.set(0, 0, 0);
+//   spotLight.lookAt( compoCenter );
+
+//   group.add( compoCenter );
+// }
 
 
 function changeLineColorbymaxChroma(Material){
@@ -555,6 +572,9 @@ function vizInit() {
     now_geometry = 'dynamic_line_type';
   });
 
+  pitch_sphereSize.addEventListener("click", ()=>{
+    now_geometry = 'pitch_sphere_size';
+  });
   // shape_heart.addEventListener("click", ()=>{
   //   deleteBasics();
   //   createShapeHeart();

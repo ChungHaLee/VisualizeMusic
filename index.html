@@ -26,7 +26,19 @@
     <title>VibvizTool_Customizing</title>
   </head>
   <body>
-  
+    <script>
+      function check(box, delimiter){
+        target = document.getElementById('thefile');
+        if (target.files.length == 1){ // 음악이 무조건 하나 input 으로 들어와야 메뉴를 보여줌.
+
+          if (box.checked == true) {
+            document.getElementById(delimiter).style.display = "inline-block";
+          } else {
+            document.getElementById(delimiter).style.display = "none";
+          }
+        }
+      }
+    </script>
     
     <aside class="sidebar">
       <div class="toggle">
@@ -55,19 +67,19 @@
                 <div>
                   <ul>
                     <li type="button" class="VisuoMenus" id="VisuoLine">
-                      <input class="check-btn" id="check-VisuoLine" type="checkbox"> 
+                      <input class="check-btn" id="check-VisuoLine" type="checkbox" onclick="check(this, 'customMenu-Line')"> 
                         <label for="check-VisuoLine"> Line </label></li>
                     <li type="button" class="VisuoMenus" id="VisuoSphere">
-                      <input class="check-btn" id="check-VisuoSphere" type="checkbox"> 
+                      <input class="check-btn" id="check-VisuoSphere" type="checkbox" onclick="check(this, 'customMenu-Sphere')"> 
                         <label for="check-VisuoSphere"> Sphere </label></li>
                     <li type="button" class="VisuoMenus" id="VisuoRing">
-                      <input class="check-btn" id="check-VisuoRing" type="checkbox"> 
+                      <input class="check-btn" id="check-VisuoRing" type="checkbox" onclick="check(this, 'customMenu-Ring')"> 
                         <label for="check-VisuoRing"> Ring </label></li>
                     <li type="button" class="VisuoMenus" id="VisuoTorus">
-                      <input class="check-btn" id="check-VisuoTorus" type="checkbox"> 
+                      <input class="check-btn" id="check-VisuoTorus" type="checkbox" onclick="check(this, 'customMenu-Torus')"> 
                         <label for="check-VisuoTorus"> Torus </label></li>
                     <li type="button" class="VisuoMenus" id="VisuoCone">
-                      <input class="check-btn" id="check-VisuoCone" type="checkbox"> 
+                      <input class="check-btn" id="check-VisuoCone" type="checkbox" onclick="check(this, 'customMenu-Cone')"> 
                         <label for="check-VisuoCone"> Cone </label></li>
                   </ul>
                 </div>
@@ -113,14 +125,32 @@
       <h5 class="menuTitle">Line Visualization</h5>
       <hr class="menuTitleHR">
       <p id="menuLine"> Pitch </p>
-          <button class="pitchLineMenu" id="pitchLineHeight"> Line Height </button>
-          <button class="pitchLineMenu" id="pitchLineThickness"> Line Thickness </button>
-          <button class="pitchLineMenu" id="pitchLineType"> Line Type </button>
+          <button class="pitchMenu" id="pitchLineHeight"> Line Height </button>
+          <button class="pitchMenu" id="pitchLineThickness"> Line Thickness </button>
+          <button class="pitchMenu" id="pitchLineType"> Line Type </button>
       <br>
       <p id="menuLine"> Dynamics </p>
-          <button class="dynamicLineMenu" id="dynamicLineHeight"> Line Height </button>
-          <button class="dynamicLineMenu" id="dynamicLineThickness"> Line Thickness </button>
-          <button class="dynamicLineMenu" id="dynamicLineType"> Line Type </button>
+          <button class="dynamicMenu" id="dynamicLineHeight"> Line Height </button>
+          <button class="dynamicMenu" id="dynamicLineThickness"> Line Thickness </button>
+          <button class="dynamicMenu" id="dynamicLineType"> Line Type </button>
+      <br>
+      <p id="menuLine"> Background </p>
+          <button class="visualButtonColors" type="button"> Colors </button>
+    </div>
+
+
+    <div class="customMenu" id="customMenu-Sphere">
+      <h5 class="menuTitle">Sphere Visualization</h5>
+      <hr class="menuTitleHR">
+      <p id="menuLine"> Pitch </p>
+          <button class="pitchMenu" id="pitchSphereSize"> Sphere Size </button>
+          <button class="pitchMenu" id="pitchSphereHeight"> Sphere Height </button>
+          <button class="pitchMenu" id="pitchSphereColor"> Sphere Color </button>
+      <br>
+      <p id="menuLine"> Dynamics </p>
+          <button class="dynamicMenu" id="dynamicSphereSize"> Sphere Size </button>
+          <button class="dynamicMenu" id="dynamicSpherePhiLength"> Sphere PhiLength </button>
+          <button class="dynamicMenu" id="dynamicSphereThetaStart"> Sphere ThetaStart </button>
       <br>
       <p id="menuLine"> Background </p>
           <button class="visualButtonColors" type="button"> Colors </button>
