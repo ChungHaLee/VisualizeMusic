@@ -27,6 +27,15 @@
   </head>
   <body>
     <script>
+      // function is_music_on(delimiter){
+      //   target = document.getElementById('thefile');
+      //   if (target.files.length == 1){ // 음악이 무조건 하나 input 으로 들어와야 제목을 보여줌.
+      //     document.getElementById(delimiter).style.display = "inline-block";
+      //   } else {
+      //     document.getElementById(delimiter).style.display = "none";
+      //   }
+      // };
+
       function check(box, delimiter){
         target = document.getElementById('thefile');
         if (target.files.length == 1){ // 음악이 무조건 하나 input 으로 들어와야 메뉴를 보여줌.
@@ -37,7 +46,7 @@
             document.getElementById(delimiter).style.display = "none";
           }
         }
-      }
+      };
     </script>
     
     <aside class="sidebar">
@@ -54,10 +63,19 @@
           <span class="country">Deaf</span>
         </div>
 
+        <div id="content">
+          <label for="thefile" class="file"> Pick a Music 🎺
+              <input type="file" id="thefile" accept="audio/mp3" />
+          </label>
+          <audio id="audio" controls></audio>
+          <div class="thetitle" id="title"></div>
+        </div>
         
         <div class="nav-menu">
           <ul>
             <li class="accordion">
+              <hr>
+
               <p id="VisuoMenu" data-toggle="collapse" data-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne" class="collapsible">
               <!-- <a href="#" id="VisuoMenu" data-toggle="collapse" data-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne" class="collapsible"> -->
                 <span class="material-icons" style="font-size:25px; vertical-align: top;">palette</span> Visualization
@@ -111,14 +129,13 @@
 
 
     
-    <h4 class="thetitle" id="title"></h4>
     <div id="userCustom">#000000</div>
-    <div id="content">
+    <!-- <div id="content">
         <label for="thefile" class="file"> Pick a Music 🎺
             <input type="file" id="thefile" accept="audio/mp3" />
         </label>
         <audio id="audio" controls></audio>
-    </div>
+    </div> -->
 
 
     <div class="customMenu" id="customMenu-Line">
@@ -134,7 +151,7 @@
           <button class="dynamicMenu" id="dynamicLineThickness"> Line Thickness </button>
           <button class="dynamicMenu" id="dynamicLineType"> Line Type </button>
       <br>
-      <p id="menuLine"> Background </p>
+      <p id="menuLine" class="bgcolor"> Background </p>
           <button class="visualButtonColors" type="button"> Colors </button>
     </div>
 
@@ -152,7 +169,7 @@
           <button class="dynamicMenu" id="dynamicSpherePhiLength"> Sphere PhiLength </button>
           <button class="dynamicMenu" id="dynamicSphereThetaStart"> Sphere ThetaStart </button>
       <br>
-      <p id="menuLine"> Background </p>
+      <p id="menuLine" class="bgcolor"> Background </p>
           <button class="visualButtonColors" type="button"> Colors </button>
     </div>
 

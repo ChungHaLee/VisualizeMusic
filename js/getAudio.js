@@ -8,7 +8,9 @@ function titleAudio(){
             audioFile = target.files[i];
         }
         realTitle = document.getElementById('title');
-        realTitle.innerText = fileList;
+        realTitle.innerText = fileList + ' is playing...🎵';
+        // console.log(realTitle.innerText);
+        // // console.log(fileList);
     });
 }
 

@@ -50,7 +50,7 @@ function init() {
 
     renderer = new THREE.WebGLRenderer({ alpha: false, antialias: true });
     renderer.setPixelRatio(window.devicePixelRatio);
-    renderer.setSize(window.innerWidth/2.3, window.innerHeight/2.1);
+    renderer.setSize(window.innerWidth/2.24, window.innerHeight/2.1);
     container = document.getElementById( "container" );
     container.appendChild( renderer.domElement )
 
