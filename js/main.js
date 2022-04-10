@@ -4,14 +4,13 @@ import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js';
 import { MeshLine, MeshLineMaterial, MeshLineRaycast } from 'three.meshline/src/THREE.MeshLine.js';
 import { pickr } from './pickr.js';
 
-let controls;
+// let controls;
 let camera, scene, renderer;
 let container, stats;
+let customMenu;
 
 
-
-
-// 소메뉴 클릭
+// 소메뉴 클릭 html 요소
 // 1. Line
 const pitch_lineHeight = document.getElementById("pitchLineHeight");
 const pitch_lineThickness = document.getElementById("pitchLineThickness");
@@ -43,18 +42,23 @@ animate();
 
 
 // REQUIRED FUNCTIONS
+
 // init function
 function init() {
     scene = new THREE.Scene();
-    camera = new THREE.PerspectiveCamera(30, window.innerWidth / window.innerHeight, 2, 2000);
 
+    // canvas
     renderer = new THREE.WebGLRenderer({ alpha: false, antialias: true });
     renderer.setPixelRatio(window.devicePixelRatio);
     renderer.setSize(window.innerWidth/2.24, window.innerHeight/2.1);
+    camera = new THREE.PerspectiveCamera(30, renderer.domElement.width/renderer.domElement.height, 2, 2000);
+    // camera = new THREE.PerspectiveCamera(30, window.innerWidth/window.innerHeight, 2, 2000);
     container = document.getElementById( "container" );
-    container.appendChild( renderer.domElement )
+    container.appendChild( renderer.domElement );
 
     renderer.toneMapping = THREE.ACESFilmicToneMapping;
+
+
 
     // Orbit Controller
     // controls = new OrbitControls(camera, renderer.domElement);
@@ -528,7 +532,8 @@ function vizInit() {
   file = document.getElementById("thefile");
   audio = document.getElementById("audio");
   fileLabel = document.querySelector("label.file");
-  
+  // makeResponsiveMenu();
+
   document.onload = function(e){
     audio.play();
     play();
@@ -623,7 +628,6 @@ function play() {
   analyser.fftSize = 512;
   bufferLength = analyser.frequencyBinCount;
   dataArray = new Uint8Array(bufferLength);
-
   // meyda analyser
   chroma = 0;
   maxChroma = 0;

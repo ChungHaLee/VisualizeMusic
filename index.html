@@ -10,7 +10,7 @@
     <link href="https://fonts.googleapis.com/css?family=Source+Serif+Pro:400,600&display=swap" rel="stylesheet">
 
     <link rel="stylesheet" href="fonts/icomoon/style.css">
-
+    <link href="cssfile.css" media="screen and (min-width: 512px) and (max-width: 1024px)" rel="stylesheet">
     <link rel="stylesheet" href="css/owl.carousel.min.css">
 
     <!-- Bootstrap CSS -->
@@ -27,15 +27,6 @@
   </head>
   <body>
     <script>
-      // function is_music_on(delimiter){
-      //   target = document.getElementById('thefile');
-      //   if (target.files.length == 1){ // 음악이 무조건 하나 input 으로 들어와야 제목을 보여줌.
-      //     document.getElementById(delimiter).style.display = "inline-block";
-      //   } else {
-      //     document.getElementById(delimiter).style.display = "none";
-      //   }
-      // };
-
       function check(box, delimiter){
         target = document.getElementById('thefile');
         if (target.files.length == 1){ // 음악이 무조건 하나 input 으로 들어와야 메뉴를 보여줌.
@@ -60,7 +51,7 @@
         <div class="profile">
           <img src="images/cutecat.jpeg" alt="Image" class="img-fluid">
           <h3 class="name">User#01</h3>
-          <span class="country">Deaf</span>
+          <span class="identity">Deaf</span>
         </div>
 
         <div id="content">
@@ -141,17 +132,17 @@
     <div class="customMenu" id="customMenu-Line">
       <h5 class="menuTitle">Line Visualization</h5>
       <hr class="menuTitleHR">
-      <p id="menuLine"> Pitch </p>
+      <p id="menusmallTitle"> Pitch </p>
           <button class="pitchMenu" id="pitchLineHeight"> Line Height </button>
           <button class="pitchMenu" id="pitchLineThickness"> Line Thickness </button>
           <button class="pitchMenu" id="pitchLineType"> Line Type </button>
       <br>
-      <p id="menuLine"> Dynamics </p>
+      <p id="menusmallTitle"> Dynamics </p>
           <button class="dynamicMenu" id="dynamicLineHeight"> Line Height </button>
           <button class="dynamicMenu" id="dynamicLineThickness"> Line Thickness </button>
           <button class="dynamicMenu" id="dynamicLineType"> Line Type </button>
       <br>
-      <p id="menuLine" class="bgcolor"> Background </p>
+      <p id="menusmallTitle" class="bgcolor"> Background </p>
           <button class="visualButtonColors" type="button"> Colors </button>
     </div>
 
@@ -159,17 +150,17 @@
     <div class="customMenu" id="customMenu-Sphere">
       <h5 class="menuTitle">Sphere Visualization</h5>
       <hr class="menuTitleHR">
-      <p id="menuLine"> Pitch </p>
+      <p id="menusmallTitle"> Pitch </p>
           <button class="pitchMenu" id="pitchSphereSize"> Sphere Size </button>
           <button class="pitchMenu" id="pitchSphereHeight"> Sphere Height </button>
           <button class="pitchMenu" id="pitchSphereColor"> Sphere Color </button>
       <br>
-      <p id="menuLine"> Dynamics </p>
+      <p id="menusmallTitle"> Dynamics </p>
           <button class="dynamicMenu" id="dynamicSphereSize"> Sphere Size </button>
           <button class="dynamicMenu" id="dynamicSpherePhiLength"> Sphere PhiLength </button>
           <button class="dynamicMenu" id="dynamicSphereThetaStart"> Sphere ThetaStart </button>
       <br>
-      <p id="menuLine" class="bgcolor"> Background </p>
+      <p id="menusmallTitle" class="bgcolor"> Background </p>
           <button class="visualButtonColors" type="button"> Colors </button>
     </div>
 
